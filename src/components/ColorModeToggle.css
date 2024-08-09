@@ -1,0 +1,55 @@
+/* The switch - the box around the slider */
+.switch {
+    font-size: 15px; /* Reduced font size for a smaller switch */
+    position: relative;
+    display: inline-block;
+    width: 2.5em; /* Adjusted width */
+    height: 1.5em; /* Adjusted height */
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    border: 2px solid #414141; /* Border color */
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #f5f3f7; /* Light mode background */
+  }
+  
+  /* Slider knob */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.2em; /* Adjusted knob size */
+    width: 1.2em; /* Adjusted knob size */
+    left: 0.1em; /* Adjusted position */
+    bottom: 0.1em; /* Adjusted position */
+    background-color: #ffffff; /* Knob color */
+    border-radius: inherit;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+  }
+  
+  /* Checked state */
+  .switch input:checked + .slider {
+    box-shadow: 0 0 20px rgba(105, 92, 254, 0.8); /* Adjusted shadow for checked state */
+    border: 2px solid #6a1b9a; /* Checked border color */
+    background-color: #3d0c66; /* Dark mode background */
+  }
+  
+  /* Checked state knob */
+  .switch input:checked + .slider:before {
+    transform: translateX(1em); /* Adjusted knob position */
+    background-color: #ffffff; /* Knob color */
+  }
+  
+  
+  

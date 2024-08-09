@@ -1,38 +1,161 @@
-.App {
+/* Import Orbitron font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+/* Apply the Orbitron font globally */
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar styling */
+nav {
+  background: linear-gradient(to bottom, #e4e9f7, #f6f5ff);
+  color: #707070;
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 14px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+nav.dark {
+  background: linear-gradient(to bottom, #18191a, #3a3b3c);
+  color: #ccc;
+}
+
+nav .logo {
+  font-size: 2xl;
+  font-weight: bold;
+  color: #695cfe;
+  margin-bottom: 20px;
+}
+
+nav .logo:hover {
+  color: #00ff9b;
+}
+
+nav a {
+  display: block;
+  font-size: lg;
+  margin-bottom: 10px;
+  color: #707070;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #695cfe;
+}
+
+nav a.active {
+  color: #695cfe;
+}
+
+nav .footer {
+  margin-top: 20px;
+  font-size: sm;
   text-align: center;
+  color: gray;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+nav.dark .footer {
+  color: gray;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
+  nav {
+    width: 200px;
+  }
+
+  nav .logo {
+    font-size: xl;
+  }
+
+  nav a {
+    font-size: md;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+  nav {
+    width: 60px;
+    height: auto; /* Adjust height for mobile */
+  }
+
+  nav .logo {
+    font-size: lg;
+  }
+
+  nav a {
+    font-size: sm;
+  }
 }
 
-.App-link {
-  color: #61dafb;
+/* Adjust for very small screens, like older iPhones */
+@media (max-width: 480px) {
+  nav {
+    width: 60px;
+    height: auto;
+  }
+
+  nav .logo {
+    font-size: md;
+  }
+
+  nav a {
+    font-size: xs;
+  }
+
+  nav .footer {
+    font-size: xs;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Adjustments for tablets in portrait mode */
+@media (max-width: 600px) and (min-width: 481px) {
+  nav {
+    width: 60px;
+    height: auto;
   }
-  to {
-    transform: rotate(360deg);
+
+  nav .logo {
+    font-size: lg;
   }
+
+  nav a {
+    font-size: sm;
+  }
+}
+
+/* Adjustments for tablets in landscape mode */
+@media (min-width: 601px) and (max-width: 1024px) {
+  nav {
+    width: 200px;
+    height: auto;
+  }
+
+  nav .logo {
+    font-size: xl;
+  }
+
+  nav a {
+    font-size: md;
+  }
+}
+
+/* Extra CSS for collapsible navbar */
+.collapsed-nav {
+  width: 60px;
+}
+
+.expanded-nav {
+  width: 250px;
 }
