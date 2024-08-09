@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Textarea, Button, VStack, Heading, Text, Select, useColorModeValue, Spinner } from '@chakra-ui/react';
+import { Box, Textarea, Button, VStack, Heading, Text, Select, useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { provideWritingAssistance } from '../api/geminiApi';
 
