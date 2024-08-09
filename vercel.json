@@ -1,6 +1,18 @@
 {
-    "env": {
-      "REACT_APP_GEMINI_API_KEY": "AIzaSyDt1sAx9_tUMpR99DlPfEuUFGsrtpH34X4"
-    }
+    "builds": [
+      {
+        "src": "src/index.js",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "build"
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
   }
   
