@@ -38,7 +38,7 @@ function Navbar() {
       left={0}
       top={0}
       h="100vh"
-      w={{ base: isOpen ? '200px' : '10px', md: '220px' }} // Adjusted width for mobile and desktop
+      w={{ base: isOpen ? '200px' : '10px', md: '200px' }} // Adjusted width for mobile and desktop
       className={isOpen ? 'expanded-nav' : 'collapsed-nav'}
       bgGradient={bgColor}
       p={5}
