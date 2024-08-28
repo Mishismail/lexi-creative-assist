@@ -39,11 +39,19 @@ export const provideWritingAssistance = async (text, purpose) => {
   try {
     let prompt;
 
-    switch (purpose) {
+    switch (purpose.split('_')[0]) {  // Only switch on the first part (messageType)
       case 'thankYou':
+        prompt = `Thank You Message (${purpose.split('_')[1]})`; 
+        break;
       case 'birthday':
+        prompt = `Happy Birthday Paragraph (${purpose.split('_')[1]})`; 
+        break;
       case 'congratulations':
+        prompt = `Congratulations Message (${purpose.split('_')[1]})`; 
+        break;
       case 'apology':
+        prompt = `Apology Message (${purpose.split('_')[1]})`; 
+        break;
       default:
         prompt = `${text}`; // Use the provided text for all purposes
         break;
