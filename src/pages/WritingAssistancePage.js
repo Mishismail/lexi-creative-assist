@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Textarea, Button, VStack, Heading, Text, Select, useColorModeValue } from '@chakra-ui/react';
+import { Box, Textarea, Button, VStack, Heading, Text, Select, Input, useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { provideWritingAssistance } from '../api/geminiApi';
 
@@ -10,11 +10,13 @@ function WritingAssistancePage() {
   const [inputText, setInputText] = useState('');
   const [outputText, setOutputText] = useState('');
   const [messageType, setMessageType] = useState('');
+  const [secondOption, setSecondOption] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleTextGeneration = async () => {
     setIsLoading(true);
-    const assistedText = await provideWritingAssistance(inputText, messageType);
+    const combinedPurpose = `${messageType}_${secondOption}`; // Combine messageType and free text secondOption
+    const assistedText = await provideWritingAssistance(inputText, combinedPurpose);
     setOutputText(assistedText);
     setIsLoading(false);
   };
@@ -28,10 +30,14 @@ function WritingAssistancePage() {
   const headingColor = useColorModeValue('purple.600', 'purple.400');
   const inputBg = useColorModeValue('whiteAlpha.700', 'blackAlpha.700');
   const inputFocusBg = useColorModeValue('whiteAlpha.900', 'blackAlpha.800');
-
   const buttonBg = useColorModeValue('purple.500', 'purple.300');
   const buttonColor = useColorModeValue('white', 'black');
   const buttonHoverBg = useColorModeValue('purple.600', 'purple.400');
+
+  const handleFirstDropdownChange = (e) => {
+    setMessageType(e.target.value);
+    setSecondOption(''); 
+  };
 
   return (
     <VStack
@@ -58,7 +64,7 @@ function WritingAssistancePage() {
       </Text>
       <Select
         placeholder="Select a message type"
-        onChange={(e) => setMessageType(e.target.value)}
+        onChange={handleFirstDropdownChange}
         value={messageType}
         size="lg"
         variant="filled"
@@ -73,6 +79,22 @@ function WritingAssistancePage() {
         <option value="congratulations">Congratulations Message</option>
         <option value="apology">Apology Message</option>
       </Select>
+      
+      {messageType && (
+        <Input
+          placeholder="Enter a specific style or additional details"
+          onChange={(e) => setSecondOption(e.target.value)}
+          value={secondOption}
+          size="lg"
+          variant="filled"
+          mb={3}
+          w={{ base: '90%', md: '70%', lg: '50%' }}
+          bg={inputBg}
+          _focus={{ bg: inputFocusBg }}
+          color={textColor}
+        />
+      )}
+
       <Textarea
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
@@ -123,12 +145,3 @@ function WritingAssistancePage() {
 }
 
 export default WritingAssistancePage;
-
-
-
-
-
-
-
-
-
