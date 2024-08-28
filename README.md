@@ -31,11 +31,12 @@ Lexi AI is a powerful web application designed to assist users with writing task
    cd lexi-ai-web-app
 
 
-1.  Make sure you have Node.js installed. Then run:bashCopy codenpm install
+1.  Make sure you have Node.js installed. Then run: npm install
     
-2.  Create a .env file in the root directory and add your API key:bashCopy codeREACT\_APP\_GEMINI\_API\_KEY=your-google-generative-ai-key
+2.  Create a .env file in the root directory and add your API key: REACT_APP_GEMINI_API_KEY=your-google-generative-ai-key
     
-3.  Start the development server:bashCopy codenpm startThe application should now be running on http://localhost:3000.
+3.  Start the development server: npm start 
+    The application should now be running on http://localhost:3000.
     
 
 ## Usage
